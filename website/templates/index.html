@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+        <h1>Welcome to Munro</h1>
+        {% for label in labels %}
+        <div><p>{{ label }}<br></p></div>
+        {% endfor %}
+{% endblock %}

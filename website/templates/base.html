@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport" content="width=device-width,initial-scale=1">
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/Lighthouse.png') }}">
+
+        {% if title %}
+        <title>{{ title }} - datanode</title>
+        {% else %}
+        <title> Welcome to Munro Consulting</title>
+        {% endif %}
+</head>
+
+<header>
+    <!-- Image and text -->
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="{{ url_for('static',filename='images/Lighthouse.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
+    Munro Consulting
+  </a>
+     <a href="/provisions">Provisions</a>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+       {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               <ul>
+               {% for message in messages %}
+                        <li>{{ messages }}</li>
+               {% endfor %}
+               </ul>
+            {% endif %}
+       {% endwith %}
+</header>
+
+<body>
+       {% block content %}
+       {% endblock %}
+</body>
+</html>
